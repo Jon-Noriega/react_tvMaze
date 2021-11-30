@@ -4,7 +4,7 @@ const SearchBar = ({searchTerm,setSearchTerm}) => {
 
     return (
         <div className='search-bar'>
-            Search: 
+            <label>Search: </label>
             <input 
                 placeholder='Show Title'
                 type='text'

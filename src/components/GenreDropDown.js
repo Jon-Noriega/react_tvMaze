@@ -24,7 +24,7 @@ const GenreDropDown = ({shows,selectedGenre,setSelectedGenre}) => {
 
     return (
         <div>
-            Genre:             
+            <label>Genre: </label>
             <select
                 onChange={(event) => setSelectedGenre(event.target.value)}
                 value={selectedGenre}
