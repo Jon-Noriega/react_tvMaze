@@ -18,7 +18,7 @@ const GenreDropDown = ({shows,selectedGenre,setSelectedGenre}) => {
     // O(n) time | O(n) space
     const displayOptions = () => (
         uniqGenres.map((genre) => (
-            <option value={`${genre}`}>{genre}</option>
+            <option value={genre}>{genre}</option>
         ))
     )
 
