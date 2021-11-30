@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchBar = ({searchTerm,handleSearchTerm}) => {
+const SearchBar = ({searchTerm,setSearchTerm}) => {
 
     return (
         <div className='search-bar'>
@@ -9,7 +9,7 @@ const SearchBar = ({searchTerm,handleSearchTerm}) => {
                 placeholder='Show Title'
                 type='text'
                 value={searchTerm}
-                onChange={handleSearchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
                 style={{marginLeft: 10}}
             />
         </div>

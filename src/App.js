@@ -16,16 +16,7 @@ const App = () => {
   
   const [filteredShows,setFilteredShows] = useState(shows);
   const [searchTerm,setSearchTerm] = useState('');
-
-  const handleSearchTerm = (event) => {
-    setSearchTerm(event.target.value);
-  }
-  
   const [selectedGenre,setSelectedGenre] = useState('');
-
-  const handleSelectedGenre = (event) => {
-    setSelectedGenre(event.target.value)
-  }
 
   const byTitle = (show) => (
     show.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -56,8 +47,8 @@ const App = () => {
   return (
     <div className='app-container'>
       <header className='app-header'>TV Maze Catalog</header>
-      <SearchBar searchTerm={searchTerm} handleSearchTerm={handleSearchTerm}/>
-      <GenreDropDown shows={shows} selectedGenre={selectedGenre} handleSelectedGenre={handleSelectedGenre}/>
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+      <GenreDropDown shows={shows} selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre}/>
       <ShowsContainer shows={filteredShows}/>
     </div>
   )
