@@ -8,8 +8,8 @@ const SearchBar = ({searchTerm,setSearchTerm}) => {
             <input 
                 placeholder='Show Title'
                 type='text'
-                value={searchTerm}
                 onChange={(event) => setSearchTerm(event.target.value)}
+                value={searchTerm}
                 style={{marginLeft: 10}}
             />
         </div>
