@@ -16,7 +16,7 @@ const GenreDropDown = ({shows,selectedGenre,handleSelectedGenre}) => {
     const uniqGenres = Object.keys(hash).sort();
 
     // O(n) time | O(n) space
-    const displayDropDown = () => (
+    const displayOptions = () => (
         uniqGenres.map((genre) => (
             <option value={`${genre}`}>{genre}</option>
         ))
@@ -30,8 +30,8 @@ const GenreDropDown = ({shows,selectedGenre,handleSelectedGenre}) => {
                 onChange={handleSelectedGenre}
                 style={{marginLeft: 15, marginBottom: 10}}
             >
-                {/* <option value=' '>Select</option> */}
-                {displayDropDown()}
+                <option value=''>Select</option>
+                {displayOptions()}
             </select>
         </div>
     )

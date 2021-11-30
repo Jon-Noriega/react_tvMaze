@@ -14,46 +14,44 @@ const App = () => {
     .then(shows => setShows(shows))
   },[]);
   
-  const [searchTerm,setSearchTerm] = useState('');
   const [filteredShows,setFilteredShows] = useState(shows);
+  const [searchTerm,setSearchTerm] = useState('');
 
   const handleSearchTerm = (event) => {
     setSearchTerm(event.target.value);
   }
   
-  const [selectedGenre,setSelectedGenre] = useState('Select');
+  const [selectedGenre,setSelectedGenre] = useState('');
 
   const handleSelectedGenre = (event) => {
     setSelectedGenre(event.target.value)
   }
-  
+
+  const byTitle = (show) => (
+    show.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+    
+  const byGenre = (show) => (
+    selectedGenre
+      ? show.genres.includes(selectedGenre)
+      : !show.genres.includes(selectedGenre)
+  )
+
   const byName = (a,b) => {
     if (a.name < b.name) return -1
     else if (a.name > b.name) return 1
     else return 0
   }
 
-  console.log('Selected Genre: ',selectedGenre);
-
   const filteredResults = () => {
-    const searchedShows = shows.filter((show) => (
-      (
-        show.name.toLowerCase()
-          .includes(searchTerm.toLowerCase())
-        &&  
-        show.genres
-          .includes(selectedGenre)
-      )
-    ));
+    const searchResults = shows.filter(byGenre).filter(byTitle);
 
-    return searchedShows.sort(byName);
+    return searchResults.sort(byName);
   }
   
   useEffect(() => {
     setFilteredShows(filteredResults)
   },[searchTerm,selectedGenre,shows])
-  
-  console.log('Filtered Results: ', filteredResults());
 
   return (
     <div className='app-container'>
