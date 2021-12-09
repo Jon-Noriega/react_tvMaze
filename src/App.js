@@ -34,14 +34,14 @@ const App = () => {
     else return 0
   }
 
-  const filteredResults = () => {
-    const searchResults = shows.filter(byGenre).filter(byTitle);
+  const searchResults = () => {
+    const results = shows.filter(byGenre).filter(byTitle);
 
-    return searchResults.sort(byName);
+    return results.sort(byName);
   }
   
   useEffect(() => {
-    setFilteredShows(filteredResults)
+    setFilteredShows(searchResults)
   },[searchTerm,selectedGenre,shows])
 
   return (
