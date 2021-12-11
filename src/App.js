@@ -29,8 +29,8 @@ const App = () => {
   )
 
   const byName = (a,b) => {
-    if (a.name < b.name) return -1
-    else if (a.name > b.name) return 1
+    if (a.name < b.name) return 1
+    else if (a.name > b.name) return -1
     else return 0
   }
 
@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     <div className='app-container'>
-      <header className='app-header'>TV Maze Catalog</header>
+      <h1 className='app-header'>TV Maze Catalog</h1>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
       <GenreDropDown shows={shows} selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre}/>
       <ShowsContainer shows={filteredShows}/>

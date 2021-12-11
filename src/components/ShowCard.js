@@ -5,9 +5,9 @@ const ShowCard = ({show}) => {
 
     return (
         <div>
-            <header className='show-card-title'>{name}</header>
+            <h2>{name}</h2>
             <img src={image.medium} alt={summary}/>
-            <h2 className='show-card-rating'>{rating.average}</h2>
+            <h3>{rating.average}</h3>
         </div>
     )
 }
